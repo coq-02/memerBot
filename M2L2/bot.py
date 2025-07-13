@@ -15,4 +15,10 @@ def send_meme(message):
     with open(f'img/{img_rand}', 'rb') as photo:
         bot.send_photo(message.chat.id, photo)
 
+@bot.message_handler(commands=["image"])
+def send_meme(message):
+    img_rand = choice(os.listdir("func_img"))
+    with open(f'img/{img_rand}', 'rb') as photo:
+        bot.send_photo(message.chat.id, photo)
+
 bot.infinity_polling()
